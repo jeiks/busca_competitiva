@@ -1,0 +1,282 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+<title>Adversarial Search (http://web.mit.edu/dxh/www/adverse/index.html)</title>
+<style type="text/css">
+body,html,table,tr,td,th,ul,li{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{
+font-family:Helvetica,Arial,sans-serif;
+margin:0;padding:0;font-size:inherit;
+text-align:left;
+}
+
+
+
+body,table {
+font:13px/1.4 Helvetica, Arial, sans-serif;
+color:#4f4c44;
+margin:0;padding:0;
+}
+
+body {
+    background:#eceaea;
+    background:#fff;
+    padding:1em;
+}
+
+
+#dashboard {
+height:10em;
+display:block;
+}
+
+
+#paper-DEBUG {
+position:fixed;
+top:0em;
+left:1em;
+width:auto;
+height:auto;
+
+}
+
+#paper {
+    border:0px solid red;
+}
+
+
+.algo {
+position:fixed;
+top:2em;
+right:1em;
+width:30em;
+}
+
+.algo div {
+    padding:3px 0;
+}
+.algo div.nest {
+    padding:0;
+}
+
+.algo div:first-letter {
+   /* margin-left:-1em;*/
+}
+
+.console ul > ul {margin-left:1px!important;}
+
+
+
+ .console-DEBUG { 
+    position:fixed;
+    left:1em;
+    bottom:0;
+    height:20%;
+    right:60em;
+    
+    overflow-y:scroll;
+    font-size:12px;
+  
+    border:1px solid #ccc;
+}
+
+
+
+body{
+padding-right:40em;
+}
+
+
+.printout {
+    padding:1em;
+    color:#556;
+    cursor:pointer;
+    opacity:0.8;
+}
+
+.printout ul {
+    margin:0;
+    padding:0;	
+    list-style-type:none;
+    border-left:0px solid #ccc; 
+    padding-left:6px;
+}
+.printout ul ul {
+    margin-left:2em;
+}
+.printout li {padding:1px;}
+
+
+.printout .answer {
+    color:#28c;
+}
+.printout .update {
+    color:#c28;
+}
+
+.printout li.answer, .printout > * {list-style-type:none;}
+
+
+
+
+.lineno {
+    color:#ccd;
+    display:block;
+    float:right;
+    margin-left:1em;
+}
+
+
+.algo * {
+font-family:Georgia, Times, serif;
+font-size:inherit;
+}
+.algo tt {
+font-variant:small-caps;
+}
+
+.printout .highlight {
+background:#bbeeff;
+border-radius:4px;
+background:#fff0cc;
+}
+.comment {color:green;padding-left:1em;}
+
+.invisible{display:none;}
+
+div.trace {
+    padding:1em;
+}
+.trace ul, .trace li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+/**
+
+
+
+    .console {
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+    }
+
+   
+
+
+    .printout li {
+	padding:.1em 0;
+	margin:0;
+
+    }
+
+   
+
+
+.printout {
+	overflow:hidden;
+	position:static;
+	width:42em;
+	background:transparent;
+    }
+
+.algo{position:fixed;top:0;right:0;background:#fff;}
+
+
+.printout li,.printout ul {padding:0;}
+
+**/
+
+.player {
+    position:fixed;
+
+    left:1em;
+    right:1em;
+    bottom:1em;
+}
+.buttons {
+    background:#ccc!important;
+    padding:4px;
+    font-size:1em;
+    border-radius:0.25em;
+}
+.buttons,.buttons * {    vertical-align:middle;}
+.buttons a {
+
+    padding:0.1em 0.3em;
+    border:1px solid transparent;
+    border-radius:0.25em;
+    text-align:center;
+    cursor:pointer;cursor:hand;
+    margin-right:0.5em;
+    border:1px solid #ccc;
+
+ 
+}
+.buttons a:hover {
+    border:1px solid #ccc;
+    background:#eee;
+}
+
+.buttons a#auto {
+}
+
+.nest {border:0px solid #eee; padding:4px;}
+.algo .nest {
+    margin-left:1.2em;
+}
+
+.console {
+
+    height:8em;
+    overflow-y:scroll;
+    font-size:0.857em;
+    line-height:1.633em;
+    
+    background:#fff;
+}
+
+.editor {
+position:absolute;
+top:4em;
+left:2.8em;
+width:30em;
+height:30em;
+border:1px solid #ccc;
+background:#fff;
+padding:1.4em;
+}
+
+
+</style>
+<script type="text/javascript" src=".Adversarial%20Search_arquivos/jquery-1.js"></script>
+<script type="text/javascript" src=".Adversarial%20Search_arquivos/jquery.js"></script>
+<script type="text/javascript" src=".Adversarial%20Search_arquivos/alphabeta.js"></script>
+
+</head>
+
+<body>
+  <h1>Adversarial search</h1><a href="#" id="edit">[edit the tree]</a> 
+  <svg version="1.1" id="paper" viewBox="0 0 800 380" width="1650" height="646"><line x1="320" y1="50" x2="106.66666666666666" y2="134" stroke="#ccc0c0" stroke-width="2"></line><line x1="106.66666666666666" y1="134" x2="53.33333333333332" y2="218" stroke="#ccc0c0" stroke-width="2"></line><line x1="53.33333333333332" y1="218" x2="26.666666666666654" y2="302" stroke="#ccc0c0" stroke-width="2"></line><circle cx="26.666666666666654" cy="302" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="23.166666666666654" y="298.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">N</text><text x="23.166666666666654" y="316" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">8</text><line x1="53.33333333333332" y1="218" x2="79.99999999999999" y2="302" stroke="#ccc0c0" stroke-width="2"></line><circle cx="79.99999999999999" cy="302" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="76.49999999999999" y="298.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">O</text><text x="76.49999999999999" y="316" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">5</text><circle cx="53.33333333333332" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="49.83333333333332" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">E</text><line x1="106.66666666666666" y1="134" x2="160" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="160" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="156.5" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">F</text><text x="156.5" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">10</text><circle cx="106.66666666666666" cy="134" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="103.16666666666666" y="130.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">B</text><line x1="320" y1="50" x2="320" y2="134" stroke="#ccc0c0" stroke-width="2"></line><line x1="320" y1="134" x2="248.88888888888889" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="248.88888888888889" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="245.38888888888889" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">G</text><text x="245.38888888888889" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">3</text><line x1="320" y1="134" x2="320" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="320" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="316.5" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">H</text><text x="316.5" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">6</text><line x1="320" y1="134" x2="391.1111111111111" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="391.1111111111111" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="387.6111111111111" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">I</text><text x="387.6111111111111" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">9</text><circle cx="320" cy="134" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="316.5" y="130.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">C</text><line x1="320" y1="50" x2="533.3333333333334" y2="134" stroke="#ccc0c0" stroke-width="2"></line><line x1="533.3333333333334" y1="134" x2="453.33333333333337" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="453.33333333333337" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="449.83333333333337" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">J</text><text x="449.83333333333337" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">10</text><line x1="533.3333333333334" y1="134" x2="506.6666666666667" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="506.6666666666667" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="503.1666666666667" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">K</text><text x="503.1666666666667" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">1</text><line x1="533.3333333333334" y1="134" x2="560" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="560" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="556.5" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">L</text><text x="556.5" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">7</text><line x1="533.3333333333334" y1="134" x2="613.3333333333334" y2="218" stroke="#ccc0c0" stroke-width="2"></line><circle cx="613.3333333333334" cy="218" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="609.8333333333334" y="214.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">M</text><text x="609.8333333333334" y="232" font-family="Helvetica" font-size="14" font-weight="normal" text-anchor="center" fill="#aaa">2</text><circle cx="533.3333333333334" cy="134" r="18" fill="#eee0e0" stroke="#ccc0c0" stroke-width="1"></circle><text x="529.8333333333334" y="130.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">D</text><circle cx="320" cy="50" r="18" fill="#fcc" stroke="#d00" stroke-width="3"></circle><text x="316.5" y="46.5" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="center" fill="#443">A</text></svg>
+       <div class="algo printout"><div id="1"><tt>Alpha-Beta-search</tt>(<tt>node</tt>, <tt>maximizing?</tt>, &#945;, &#946;, &#945;<tt>-node</tt>, &#946;<tt>-node</tt>)</div><div class="nest"><div id="2">If &#945; and &#946; are undefined:</div><div class="nest"><div id="3" class="highlight">Set &#945; = &#8722;&#8734; and &#946; = +&#8734;.</div></div><div id="4">If <tt>node</tt> has children:</div><div class="nest"><div id="5">For each child <tt>child</tt> of <tt>node</tt>:</div><div class="nest"><div id="6">Set <tt>&#10216;result_value, result_node&#10217;</tt> = <tt>Alpha-Beta-search</tt>(<tt>child</tt>, not <tt>maximizing?</tt>, &#945;, &#946;, &#945;<tt>-node</tt>, &#946;<tt>-node</tt>)</div><div id="7">If <tt>maximizing?</tt>:</div><div class="nest"><div id="8">If <tt>result_value</tt> &gt; &#945;:</div><div class="nest"><div id="9">Set &#10216;&#945;, &#945;<tt>-node</tt>&#10217; = <tt>&#10216;result_value, result_node&#10217;</tt>.</div></div></div><div id="10">Else:</div><div class="nest"><div id="11">If <tt>result_value</tt> &lt; &#946;:</div><div class="nest"><div id="12">Set &#10216;&#946;, &#946;<tt>-node</tt>&#10217; = <tt>&#10216;result_value, result_node&#10217;</tt>.</div></div></div><div id="13">If &#945; &#8805; &#946;: <span class="comment">// if <tt>node</tt> can be pruned</span></div><div class="nest"><div id="14">Exit the for loop early.</div></div></div><div id="15">End For.</div><div id="16">If <tt>maximizing?</tt>:</div><div class="nest"><div id="17">Return &#10216;&#945;, &#945;<tt>-node</tt>&#10217;.</div></div><div id="18">Else:</div><div class="nest"><div id="19">Return &#10216;&#946;, &#946;<tt>-node</tt>&#10217;.</div></div></div><div id="20">Else:</div><div class="nest"><div id="21">Return <tt>node</tt> and the static value of <tt>node</tt>.</div></div></div></div>
+  
+ 
+       <div class="player">
+       <div class="buttons">
+       <a id="step-prev">« prev</a>
+       <a id="step-next">next »</a>
+       <a id="auto">auto &#8634;</a>
+       </div>
+
+       <div class="console printout"><div id="22" class="highlight"><span class="update">Setting &#945; = &#8722;&#8734;, by default.</span></div><div id="23"><span class="update">Setting &#946; = +&#8734;, by default.</span></div><div id="24"><hr></div><div id="25">Visiting node <b>A</b>. (MAX's turn.)<li></li></div><div id="26">At this node, MAX's best outcome so far: &#945; = &#8722;&#8734;</div><div id="27">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="28">Does <b>A</b>  have children?</div><div class="nest"><div id="29"><span class="answer">Yes. To determine which move is best for MAX, compute MIN's best response to each one and pick the one with the highest score.</span></div><div id="30">LOOP: Begin recursively applying alpha-beta to <b>A</b>'s children: [<b>B</b>, <b>C</b>, <b>D</b>].</div><div class="nest"><div id="31">&#8630; Recursively apply alpha-beta to the first child node, <b>B</b>. (with arguments &#945;=&#8722;&#8734;, &#946;=+&#8734;)</div><div class="nest"><div id="32"><hr></div><div id="33">Visiting node <b>B</b>. (MIN's turn.)<li></li></div><div id="34">At this node, MAX's best outcome so far: &#945; = &#8722;&#8734;</div><div id="35">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="36">Does <b>B</b>  have children?</div><div class="nest"><div id="37"><span class="answer">Yes. To determine which move is best for MIN, compute MAX's best response to each one and pick the one with the lowest score.</span></div><div id="38">LOOP: Begin recursively applying alpha-beta to <b>B</b>'s children: [<b>E</b>, <b>F</b>].</div><div class="nest"><div id="39">&#8630; Recursively apply alpha-beta to the first child node, <b>E</b>. (with arguments &#945;=&#8722;&#8734;, &#946;=+&#8734;)</div><div class="nest"><div id="40"><hr></div><div id="41">Visiting node <b>E</b>. (MAX's turn.)<li></li></div><div id="42">At this node, MAX's best outcome so far: &#945; = &#8722;&#8734;</div><div id="43">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="44">Does <b>E</b>  have children?</div><div class="nest"><div id="45"><span class="answer">Yes. To determine which move is best for MAX, compute MIN's best response to each one and pick the one with the highest score.</span></div><div id="46">LOOP: Begin recursively applying alpha-beta to <b>E</b>'s children: [<b>N</b>, <b>O</b>].</div><div class="nest"><div id="47">&#8630; Recursively apply alpha-beta to the first child node, <b>N</b>. (with arguments &#945;=&#8722;&#8734;, &#946;=+&#8734;)</div><div class="nest"><div id="48"><hr></div><div id="49">Visiting node <b>N</b>. (MIN's turn.)<li></li></div><div id="50">At this node, MAX's best outcome so far: &#945; = &#8722;&#8734;</div><div id="51">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="52">Does <b>N</b>  have children?</div><div class="nest"><div id="53"><span class="answer">No; compute its score using static evaluation.</span></div><div id="54">Return this node <b>N</b> and its static value:&#8195;8</div></div></div><div id="55">&#8635; Back up to parent node <b>E</b> (MAX's turn.)<li></li></div><div id="56">[MAX] Is the returned result (= 8) larger than &#945; (= &#8722;&#8734;)?</div><div class="nest"><div id="57"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MAX than any move discovered so far.</span></div><div id="58">Update the value for MAX's best outcome, &#945;. <span class="update">Set &#945; = 8, and remember the node <b>N</b> that goes with it.</span></div></div><div id="59">Can we skip looking at the rest of <b>E</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="60"><span class="answer">No, there might still be a better move.</span></div></div><div id="61">&#8630; Recursively apply alpha-beta to the next child node, <b>O</b>. (with arguments &#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="62"><hr></div><div id="63">Visiting node <b>O</b>. (MIN's turn.)<li></li></div><div id="64">At this node, MAX's best outcome so far: &#945; = 8</div><div id="65">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="66">Does <b>O</b>  have children?</div><div class="nest"><div id="67"><span class="answer">No; compute its score using static evaluation.</span></div><div id="68">Return this node <b>O</b> and its static value:&#8195;5</div></div></div><div id="69">&#8635; Back up to parent node <b>E</b> (MAX's turn.)<li></li></div><div id="70">[MAX] Is the returned result (= 5) larger than &#945; (= 8)?</div><div class="nest"><div id="71"><span class="answer">No.</span></div></div><div id="72">Finished iterating over <b>E</b>'s children. Return MAX's best option: &#945; = 8 at node <b>N</b>.</div></div></div></div><div id="73">&#8635; Back up to parent node <b>B</b> (MIN's turn.)<li></li></div><div id="74">[MIN] Is the returned result (= 8) smaller than &#946; (= +&#8734;)?</div><div class="nest"><div id="75"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div><div id="76">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 8, and remember the node <b>N</b> that goes with it.</span></div></div><div id="77">Can we skip looking at the rest of <b>B</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=&#8722;&#8734;, &#946;=8)</div><div class="nest"><div id="78"><span class="answer">No, there might still be a better move.</span></div></div><div id="79">&#8630; Recursively apply alpha-beta to the next child node, <b>F</b>. (with arguments &#945;=&#8722;&#8734;, &#946;=8)</div><div class="nest"><div id="80"><hr></div><div id="81">Visiting node <b>F</b>. (MAX's turn.)<li></li></div><div id="82">At this node, MAX's best outcome so far: &#945; = &#8722;&#8734;</div><div id="83">At this node, MIN's best outcome so far: &#946; = 8</div><div id="84">Does <b>F</b>  have children?</div><div class="nest"><div id="85"><span class="answer">No; compute its score using static evaluation.</span></div><div id="86">Return this node <b>F</b> and its static value:&#8195;10</div></div></div><div id="87">&#8635; Back up to parent node <b>B</b> (MIN's turn.)<li></li></div><div id="88">[MIN] Is the returned result (= 10) smaller than &#946; (= 8)?</div><div class="nest"><div id="89"><span class="answer">No.</span></div></div><div id="90">Finished iterating over <b>B</b>'s children. Return MIN's best option: &#946; = 8 at node <b>N</b>.</div></div></div></div><div id="91">&#8635; Back up to parent node <b>A</b> (MAX's turn.)<li></li></div><div id="92">[MAX] Is the returned result (= 8) larger than &#945; (= &#8722;&#8734;)?</div><div class="nest"><div id="93"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MAX than any move discovered so far.</span></div><div id="94">Update the value for MAX's best outcome, &#945;. <span class="update">Set &#945; = 8, and remember the node <b>N</b> that goes with it.</span></div></div><div id="95">Can we skip looking at the rest of <b>A</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="96"><span class="answer">No, there might still be a better move.</span></div></div><div id="97">&#8630; Recursively apply alpha-beta to the next child node, <b>C</b>. (with arguments &#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="98"><hr></div><div id="99">Visiting node <b>C</b>. (MIN's turn.)<li></li></div><div id="100">At this node, MAX's best outcome so far: &#945; = 8</div><div id="101">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="102">Does <b>C</b>  have children?</div><div class="nest"><div id="103"><span class="answer">Yes. To determine which move is best for MIN, compute MAX's best response to each one and pick the one with the lowest score.</span></div><div id="104">LOOP: Begin recursively applying alpha-beta to <b>C</b>'s children: [<b>G</b>, <b>H</b>, <b>I</b>].</div><div class="nest"><div id="105">&#8630; Recursively apply alpha-beta to the first child node, <b>G</b>. (with arguments &#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="106"><hr></div><div id="107">Visiting node <b>G</b>. (MAX's turn.)<li></li></div><div id="108">At this node, MAX's best outcome so far: &#945; = 8</div><div id="109">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="110">Does <b>G</b>  have children?</div><div class="nest"><div id="111"><span class="answer">No; compute its score using static evaluation.</span></div><div id="112">Return this node <b>G</b> and its static value:&#8195;3</div></div></div><div id="113">&#8635; Back up to parent node <b>C</b> (MIN's turn.)<li></li></div><div id="114">[MIN] Is the returned result (= 3) smaller than &#946; (= +&#8734;)?</div><div class="nest"><div id="115"><span class="answer">Yes. Moving to <b>G</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div><div id="116">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 3, and remember the node <b>G</b> that goes with it.</span></div></div><div id="117">Can we skip looking at the rest of <b>C</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=3)</div><div class="nest"><div id="118"><span class="answer">Yes. MIN's opponent can guarantee a better outcome (&#945; = 8 at node <b>N</b>) by taking a different earlier move.</span></div><div id="119">Stop iterating over children— exit early.</div></div><div id="120">Finished iterating over <b>C</b>'s children. Return MIN's best option: &#946; = 3 at node <b>G</b>.</div></div></div></div><div id="121">&#8635; Back up to parent node <b>A</b> (MAX's turn.)<li></li></div><div id="122">[MAX] Is the returned result (= 3) larger than &#945; (= 8)?</div><div class="nest"><div id="123"><span class="answer">No.</span></div></div><div id="124">Can we skip looking at the rest of <b>A</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="125"><span class="answer">No, there might still be a better move.</span></div></div><div id="126">&#8630; Recursively apply alpha-beta to the next child node, <b>D</b>. (with arguments &#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="127"><hr></div><div id="128">Visiting node <b>D</b>. (MIN's turn.)<li></li></div><div id="129">At this node, MAX's best outcome so far: &#945; = 8</div><div id="130">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="131">Does <b>D</b>  have children?</div><div class="nest"><div id="132"><span class="answer">Yes. To determine which move is best for MIN, compute MAX's best response to each one and pick the one with the lowest score.</span></div><div id="133">LOOP: Begin recursively applying alpha-beta to <b>D</b>'s children: [<b>J</b>, <b>K</b>, <b>L</b>, <b>M</b>].</div><div class="nest"><div id="134">&#8630; Recursively apply alpha-beta to the first child node, <b>J</b>. (with arguments &#945;=8, &#946;=+&#8734;)</div><div class="nest"><div id="135"><hr></div><div id="136">Visiting node <b>J</b>. (MAX's turn.)<li></li></div><div id="137">At this node, MAX's best outcome so far: &#945; = 8</div><div id="138">At this node, MIN's best outcome so far: &#946; = +&#8734;</div><div id="139">Does <b>J</b>  have children?</div><div class="nest"><div id="140"><span class="answer">No; compute its score using static evaluation.</span></div><div id="141">Return this node <b>J</b> and its static value:&#8195;10</div></div></div><div id="142">&#8635; Back up to parent node <b>D</b> (MIN's turn.)<li></li></div><div id="143">[MIN] Is the returned result (= 10) smaller than &#946; (= +&#8734;)?</div><div class="nest"><div id="144"><span class="answer">Yes. Moving to <b>J</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div><div id="145">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 10, and remember the node <b>J</b> that goes with it.</span></div></div><div id="146">Can we skip looking at the rest of <b>D</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=10)</div><div class="nest"><div id="147"><span class="answer">No, there might still be a better move.</span></div></div><div id="148">&#8630; Recursively apply alpha-beta to the next child node, <b>K</b>. (with arguments &#945;=8, &#946;=10)</div><div class="nest"><div id="149"><hr></div><div id="150">Visiting node <b>K</b>. (MAX's turn.)<li></li></div><div id="151">At this node, MAX's best outcome so far: &#945; = 8</div><div id="152">At this node, MIN's best outcome so far: &#946; = 10</div><div id="153">Does <b>K</b>  have children?</div><div class="nest"><div id="154"><span class="answer">No; compute its score using static evaluation.</span></div><div id="155">Return this node <b>K</b> and its static value:&#8195;1</div></div></div><div id="156">&#8635; Back up to parent node <b>D</b> (MIN's turn.)<li></li></div><div id="157">[MIN] Is the returned result (= 1) smaller than &#946; (= 10)?</div><div class="nest"><div id="158"><span class="answer">Yes. Moving to <b>K</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div><div id="159">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 1, and remember the node <b>K</b> that goes with it.</span></div></div><div id="160">Can we skip looking at the rest of <b>D</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=1)</div><div class="nest"><div id="161"><span class="answer">Yes. MIN's opponent can guarantee a better outcome (&#945; = 8 at node <b>N</b>) by taking a different earlier move.</span></div><div id="162">Stop iterating over children— exit early.</div></div><div id="163">Finished iterating over <b>D</b>'s children. Return MIN's best option: &#946; = 1 at node <b>K</b>.</div></div></div></div><div id="164">&#8635; Back up to parent node <b>A</b> (MAX's turn.)<li></li></div><div id="165">[MAX] Is the returned result (= 1) larger than &#945; (= 8)?</div><div class="nest"><div id="166"><span class="answer">No.</span></div></div><div id="167">Finished iterating over <b>A</b>'s children. Return MAX's best option: &#945; = 8 at node <b>N</b>.</div></div></div></div>
+       <!--div class="trace">asdfjkl;asdfhalksdfhkl</div!-->
+       </div>
+<!-- &#x25b6; -->
+
+    
+
+
+</body></html>
