@@ -186,7 +186,7 @@
          padding:1.4em;
          }
 	 #paper {
-		zoom: 0.9;
+		transform: scale(0.9);
 	 }
       </style>
       <script type="text/javascript" src=".Adversarial%20Search_arquivos/jquery-1.js"></script>
@@ -194,14 +194,15 @@
       <script type="text/javascript" src=".Adversarial%20Search_arquivos/alphabeta-pt_BR.js"></script>
       <script>
 	      function changeZoom(e) {
-		      paper.style.zoom = parseFloat(e.value);
+		      paper.style.transform = 'scale('+parseFloat(e.value)+')';
 	      }
       </script>
    </head>
    <body>
       <div style='position: absolute;top: 5px;left: 5px; float:left;'>
       <h1>Busca competitiva</h1>
-      <a href="#" id="edit">[editar a &aacute;rvore]</a> Zoom: <input type="range" min="0.4" max="1.0" step="0.1" value="0.9" oninput="changeZoom(this)" onchange="changeZoom(this)">
+      <a href="#" id="edit">[editar a árvore]</a><br>
+      Zoom: <input type="range" min="0.4" max="1.0" step="0.1" value="0.9" oninput="changeZoom(this)" onchange="changeZoom(this)">
       </div>
       <div style="display: flex;width: 100%">
       <svg version="1.1" id="paper" viewBox="0 0 800 380" width="100%" height="auto">
@@ -633,9 +634,7 @@
                </div>
             </div>
          </div>
-         <!--div class="trace">asdfjkl;asdfhalksdfhkl</div!-->
       </div>
-      <!-- &#x25b6; -->
    </body>
 </html>
 
