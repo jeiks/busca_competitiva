@@ -264,7 +264,7 @@
       <div class="algo printout" style="width: 530px;">
          <div id="1"><tt>Busca-Alpha-Beta</tt>(<tt>nodo</tt>, <tt>maximizando?</tt>, &#945;, &#946;, &#945;<tt>-nodo</tt>, &#946;<tt>-nodo</tt>)</div>
          <div class="nest">
-            <div id="2">Se &#945; e &#946; não estão definidos:</div>
+            <div id="2">Se &#945; e &#946; nÃ£o estÃ£o definidos:</div>
             <div class="nest">
                <div id="3" class="highlight">Definir &#945; = &#8722;&#8734; e &#946; = +&#8734;.</div>
             </div>
@@ -272,7 +272,7 @@
             <div class="nest">
                <div id="5">Para cada filho <tt>child</tt> do <tt>nodo</tt>:</div>
                <div class="nest">
-                  <div id="6">Defina <tt>&#10216;valor_do_resultado, resultado_do_nodo&#10217;</tt> = <tt>Busca-Alpha-Beta</tt>(<tt>child</tt>, não <tt>maximizando?</tt>, &#945;, &#946;, &#945;<tt>-nodo</tt>, &#946;<tt>-nodo</tt>)</div>
+                  <div id="6">Defina <tt>&#10216;valor_do_resultado, resultado_do_nodo&#10217;</tt> = <tt>Busca-Alpha-Beta</tt>(<tt>child</tt>, nÃ£o <tt>maximizando?</tt>, &#945;, &#946;, &#945;<tt>-nodo</tt>, &#946;<tt>-nodo</tt>)</div>
                   <div id="7">Se <tt>maximizando?</tt>:</div>
                   <div class="nest">
                      <div id="8">Se <tt>valor_do_resultado</tt> &gt; &#945;:</div>
@@ -280,7 +280,7 @@
                         <div id="9">Defina &#10216;&#945;, &#945;<tt>-nodo</tt>&#10217; = <tt>&#10216;valor_do_resultado, resultado_do_nodo&#10217;</tt>.</div>
                      </div>
                   </div>
-                  <div id="10">Senão:</div>
+                  <div id="10">SenÃ£o:</div>
                   <div class="nest">
                      <div id="11">Se <tt>valor_do_resultado</tt> &lt; &#946;:</div>
                      <div class="nest">
@@ -297,21 +297,21 @@
                <div class="nest">
                   <div id="17">Retorne &#10216;&#945;, &#945;<tt>-nodo</tt>&#10217;.</div>
                </div>
-               <div id="18">Senão:</div>
+               <div id="18">SenÃ£o:</div>
                <div class="nest">
                   <div id="19">Retorne &#10216;&#946;, &#946;<tt>-nodo</tt>&#10217;.</div>
                </div>
             </div>
-            <div id="20">Senão:</div>
+            <div id="20">SenÃ£o:</div>
             <div class="nest">
-               <div id="21">Retorne o <tt>nodo</tt> e o valor estático do <tt>nodo</tt>.</div>
+               <div id="21">Retorne o <tt>nodo</tt> e o valor estÃ¡tico do <tt>nodo</tt>.</div>
             </div>
          </div>
       </div>
       <div class="player">
          <div class="buttons">
-            <a id="step-prev">« prev</a>
-            <a id="step-next">next »</a>
+            <a id="step-prev">Â« prev</a>
+            <a id="step-next">next Â»</a>
             <a id="auto">auto &#8634;</a>
          </div>
          <div class="console printout">
@@ -389,7 +389,7 @@
                                        <div id="57"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MAX than any move discovered so far.</span></div>
                                        <div id="58">Update the value for MAX's best outcome, &#945;. <span class="update">Set &#945; = 8, and remember the node <b>N</b> that goes with it.</span></div>
                                     </div>
-                                    <div id="59">Can we skip looking at the rest of <b>E</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
+                                    <div id="59">Can we skip looking at the rest of <b>E</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
                                     <div class="nest">
                                        <div id="60"><span class="answer">No, there might still be a better move.</span></div>
                                     </div>
@@ -431,7 +431,7 @@
                               <div id="75"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div>
                               <div id="76">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 8, and remember the node <b>N</b> that goes with it.</span></div>
                            </div>
-                           <div id="77">Can we skip looking at the rest of <b>B</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=&#8722;&#8734;, &#946;=8)</div>
+                           <div id="77">Can we skip looking at the rest of <b>B</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=&#8722;&#8734;, &#946;=8)</div>
                            <div class="nest">
                               <div id="78"><span class="answer">No, there might still be a better move.</span></div>
                            </div>
@@ -473,7 +473,7 @@
                      <div id="93"><span class="answer">Yes. Moving to <b>N</b> provides a better guaranteed score for MAX than any move discovered so far.</span></div>
                      <div id="94">Update the value for MAX's best outcome, &#945;. <span class="update">Set &#945; = 8, and remember the node <b>N</b> that goes with it.</span></div>
                   </div>
-                  <div id="95">Can we skip looking at the rest of <b>A</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
+                  <div id="95">Can we skip looking at the rest of <b>A</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
                   <div class="nest">
                      <div id="96"><span class="answer">No, there might still be a better move.</span></div>
                   </div>
@@ -519,10 +519,10 @@
                               <div id="115"><span class="answer">Yes. Moving to <b>G</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div>
                               <div id="116">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 3, and remember the node <b>G</b> that goes with it.</span></div>
                            </div>
-                           <div id="117">Can we skip looking at the rest of <b>C</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=3)</div>
+                           <div id="117">Can we skip looking at the rest of <b>C</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=3)</div>
                            <div class="nest">
                               <div id="118"><span class="answer">Yes. MIN's opponent can guarantee a better outcome (&#945; = 8 at node <b>N</b>) by taking a different earlier move.</span></div>
-                              <div id="119">Stop iterating over children— exit early.</div>
+                              <div id="119">Stop iterating over childrenÂ— exit early.</div>
                            </div>
                            <div id="120">Finished iterating over <b>C</b>'s children. Return MIN's best option: &#946; = 3 at node <b>G</b>.</div>
                         </div>
@@ -536,7 +536,7 @@
                   <div class="nest">
                      <div id="123"><span class="answer">No.</span></div>
                   </div>
-                  <div id="124">Can we skip looking at the rest of <b>A</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
+                  <div id="124">Can we skip looking at the rest of <b>A</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=+&#8734;)</div>
                   <div class="nest">
                      <div id="125"><span class="answer">No, there might still be a better move.</span></div>
                   </div>
@@ -582,7 +582,7 @@
                               <div id="144"><span class="answer">Yes. Moving to <b>J</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div>
                               <div id="145">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 10, and remember the node <b>J</b> that goes with it.</span></div>
                            </div>
-                           <div id="146">Can we skip looking at the rest of <b>D</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=10)</div>
+                           <div id="146">Can we skip looking at the rest of <b>D</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=10)</div>
                            <div class="nest">
                               <div id="147"><span class="answer">No, there might still be a better move.</span></div>
                            </div>
@@ -612,10 +612,10 @@
                               <div id="158"><span class="answer">Yes. Moving to <b>K</b> provides a better guaranteed score for MIN than any move discovered so far.</span></div>
                               <div id="159">Update the value for MIN's best outcome, &#946;. <span class="update">Set &#946; = 1, and remember the node <b>K</b> that goes with it.</span></div>
                            </div>
-                           <div id="160">Can we skip looking at the rest of <b>D</b>'s children —is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=1)</div>
+                           <div id="160">Can we skip looking at the rest of <b>D</b>'s children Â—is &#945;&#8201;&#8805;&#8201;&#946;? (&#945;=8, &#946;=1)</div>
                            <div class="nest">
                               <div id="161"><span class="answer">Yes. MIN's opponent can guarantee a better outcome (&#945; = 8 at node <b>N</b>) by taking a different earlier move.</span></div>
-                              <div id="162">Stop iterating over children— exit early.</div>
+                              <div id="162">Stop iterating over childrenÂ— exit early.</div>
                            </div>
                            <div id="163">Finished iterating over <b>D</b>'s children. Return MIN's best option: &#946; = 1 at node <b>K</b>.</div>
                         </div>
